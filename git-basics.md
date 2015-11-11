@@ -93,12 +93,6 @@ _(Version Control System, revision control)_
 
 [Source](http://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
 
-???
-
-"GitHub's principle": 
->master branch should always be deployable
-
-
 ---
 
 # Git Revisions
@@ -108,10 +102,6 @@ _(Version Control System, revision control)_
 ![Revisions illustration](images/git-revisions.png)
 
 [Source](http://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
-
-???
-
-HEAD, SHA-1 sum
 
 ---
 

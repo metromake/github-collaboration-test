@@ -1,3 +1,3 @@
-Git into slideset.
+## Git introduction slideset
 
-[Content](git-basics.md)
+[Content](git-basics.md) of slides
