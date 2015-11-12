@@ -184,7 +184,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
   - edit files locally
   - add & commit changes 
   - push to remote
-  - solve conflicts if needed
+  - resolve conflicts if needed, ([help](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/))
 5. Go back to 4 (once at least)
 
 ---
