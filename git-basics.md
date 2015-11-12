@@ -162,7 +162,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 
 ## Exercise 1: Git command line basics
 
-1. Install Git if missing command line tools, [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+1. Install Git if missing command line tools. [Instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [tips for basic git config](https://gist.github.com/mattpe/2f26d86ee1ba9088e19a)
 2. Create a local repo by **cloning** (`git clone`) this lecture material from Github: <https://github.com/mattpe/git-intro.git>
 3. Create a remote repository at Bitbucket
 4. Change the remote _origin_ to point to your Bitbucket repo (tip: `git remote help`)
@@ -194,7 +194,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 
 ## Returning exercises
 
-Add read permission to your repos for user _mattpe_ on Bitbucket and return a link to your own and your team's repo to Tuubi. 
+Add read permission to your repos for user _mattpe_ or make your repo public at Bitbucket and return a link to your own and your team's repo to Tuubi. 
 
 
 
