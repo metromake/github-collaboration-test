@@ -74,6 +74,7 @@ _(Version Control System, revision control)_
 
 # Git, basic usage/commands
 
+- `git clone [url]`: clone an existing repository (creates a local copy of the repo)
 - `git init`: create a new git repository
 - `git add [filenames]`: choose files for the next commit (add to staging area)
 - `git commit`: save a version of chosen files (needs a message)
@@ -162,7 +163,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 ## Exercise 1: Git command line basics
 
 1. Install Git if missing command line tools, [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-2. Create a local repo by cloning this lecture material from Github: <https://github.com/mattpe/git-intro.git>
+2. Create a local repo by **cloning** (`git clone`) this lecture material from Github: <https://github.com/mattpe/git-intro.git>
 3. Create a remote repository at Bitbucket
 4. Change the remote _origin_ to point to your Bitbucket repo (tip: `git remote help`)
 5. Push the files to Bitbucket
