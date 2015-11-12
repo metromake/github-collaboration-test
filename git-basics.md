@@ -166,6 +166,8 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 2. Create a local repo by **cloning** (`git clone`) this lecture material from Github: <https://github.com/mattpe/git-intro.git>
 3. Create a remote repository at Bitbucket
 4. Change the remote _origin_ to point to your Bitbucket repo (tip: `git remote help`)
+  - remove existing _origin_
+  - add new _origin_: url to your Bitbucket repo
 5. Push the files to Bitbucket
 6. Create a file `notes.md` in your local repo and record all git commands you have used into that file (check command: `history`)
 7. Add the file to the local git repo
