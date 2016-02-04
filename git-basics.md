@@ -80,7 +80,7 @@ _(Version Control System, revision control)_
 - `git commit`: save a version of chosen files (needs a message)
 - `git status`: check current status of the repo
 - `git log`: show revision history
-- `git branching [newBranchName]`: create a new branch based on current branch
+- `git branch [newBranchName]`: create a new branch based on current branch
 - `git checkout [something]`: choose a branch or revision to work with
 - `git push`: push the repository (new commits) to chosen remote repository
 - `git pull`: pull the repository ( get new changes and commits) from remote repo
