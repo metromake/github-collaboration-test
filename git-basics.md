@@ -180,10 +180,10 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 ## Exercise 2: Collaboration & conflicts
 
 1. Form a team of ~3 members
-2. Choose a Github repo (from ex. 1) of one of the members and add write permissions to other members of the team (every team member should be able to push to that repo)
+2. Choose a Github repo (from ex. 1) of one of the team members and add write/push permissions to other members of the team (add collaborators in Github, every team member should be able to push to that repo)
 3. all team members should clone the same remote repo
 4. do individually at the same time as your team mates:
-  - pull changes from remote repo
+  - pull changes from remote repo (not needed if repo was cloned just before)
   - create and checkout a new development branch for your modifications  
   - edit files locally (e.g. add, remove & modify rows)
   - add & commit changes
