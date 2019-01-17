@@ -42,13 +42,13 @@ _(Version Control System, revision control)_
 # Basic concepts
 
 - **Repository**: storage for all files and revision data
-- **Checkout**: choosing specified version of code or development branch to work with
 - **Clone**: taking a full copy of an existing repository
-- **Commit**: saving a new revision of code and naming it (= adding a message/description) 
-- **Tag**: special label for a revision (e.g. Release v. 1.1)
+- **Commit**: saving a new revision of code and naming it (= adding a message/description)
+- **Checkout**: choosing specified version of code or development branch to work with
 - **Branches**: parallel development versions of code
+- **Tag**: special label for a revision (e.g. Release v. 1.1)
 - **Merge**: combining changes of different branches together
-- **Conflict**: occurs when there is different modifications in the same file while trying to merge branches 
+- **Conflict**: occurs when there is different modifications in the same file while trying to merge branches
 
 ---
 
@@ -68,7 +68,7 @@ _(Version Control System, revision control)_
 
 - Command line git (works directly in linux/mac terminal)
 - Windows: [Git for windows](https://msysgit.github.io/) provides command line tools (git bash) and Graphic UI tools/integration to Windows explorer
-- Git plugin for Eclipse: eclipse UI integration
+- Integrated Git support or plugin for all popular IDEs
 
 ---
 
@@ -126,8 +126,8 @@ Contents in project above:
 # [Github](https://github.com)
 
 - **Github != git**
-- Commercial service providing git remote server + project wiki, webpage hosting and wide user community 
-- **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project 
+- Commercial service providing git remote server + project wiki, webpage hosting and wide user community
+- **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
 - Almost _de facto_ hosting service for Open Source projects
 - Repositories (projects) are public by default, private repos are not free (except student accounts)
 
@@ -148,7 +148,7 @@ Take a look at:
 
 class: center, middle
 
-# Exercises 
+# Exercises
 
 ---
 
