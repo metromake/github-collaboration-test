@@ -6,7 +6,7 @@
 - Basic principles of Version Control System
 - Git on command line
 - Basic usage & workflow
-- Remote hosting services: Github, Bitbucket
+- Remote hosting services: Github, Bitbucket, Gitlab
 - Links to Learning materials
 - Exercises
 
@@ -29,13 +29,12 @@ _(Version Control System, revision control)_
 
 [wiki1]: https://en.wikipedia.org/w/index.php?title=Git_(software)&action=history
 [wiki2]: https://en.wikipedia.org/wiki/Git_(software)
-<!-- Normal links including parentheses break links when rendered with remark. -->
 
 ---
 
 ## Basic concepts
 
-- **Repository**: storage for all files and revision data
+- **Repository**: storage for all files and their revision data
 - **Clone**: taking a full copy of an existing repository
 - **Commit**: saving a new revision of code and naming it (= adding a message/description)
 - **Checkout**: choosing specified version of code or development branch to work with
@@ -58,24 +57,27 @@ _(Version Control System, revision control)_
 
 ---
 
-## Git tools
+## Git installation
 
-- Command line git (works directly in linux/mac terminal)
-- Windows: [Git for windows](https://msysgit.github.io/) provides command line tools (git bash) and Graphic UI tools/integration to Windows explorer
-- Integrated Git support or plugin for all popular IDEs
+- Command line user interface running in operating system's terminal is the original/default tool
+  - Windows: [Git for windows](https://gitforwindows.org/) provides command line tools (git bash) and Graphic UI tools/integration to Windows explorer
+  - MacOS: [Several options](https://git-scm.com/download/mac)
+  - Linux/Unix: via package manager, e.g. `apt install git` or `yum install git`
+- Multiple [graphical UIs](https://git-scm.com/downloads/guis) are available too  
+- Integrated Git support or a plugin is provided for most/all popular IDEs
 
 ---
 
 ## Git basic usage & commands
 
-- `git clone [url]`: clone an existing repository (creates a local copy of the repo)
+- `git clone <URI>`: clone an existing repository (creates a local copy of the repo)
 - `git init`: create a new git repository
 - `git add [filenames]`: choose files for the next commit (add to staging area)
-- `git commit`: save a version of chosen files (needs a message)
+- `git commit`: save a version of chosen files (needs a message too, e.g. `-m "added new file"`)
 - `git status`: check current status of the repo
 - `git log`: show revision history
-- `git branch [newBranchName]`: create a new branch based on current branch
-- `git checkout [something]`: choose a branch or revision to work with
+- `git branch <newBranchName>`: create a new branch based on the current branch
+- `git checkout <branchName>`: choose a branch or a revision to work with
 - `git push`: push the repository (new commits) to chosen remote repository
 - `git pull`: pull the repository ( get new changes and commits) from remote repo
 - `git diff`: shows the differences in files between working copy and the last commit
@@ -115,7 +117,7 @@ only `src/` folder contains code files created by developers and everything else
     .project
     .classpath
 
-`.git/` folder (contains the revision history etc.) and `.gitignore` file itself should be included.
+`.git/` folder (contains the revision history etc.) and `.gitignore` file itself should be included in version control.
 
 ### Stuff to include
 
@@ -123,7 +125,7 @@ only `src/` folder contains code files created by developers and everything else
 - README.md and other documentation 
 - license
 - package.json and other settings files
-- .gitignore file: list of local stuff not to be included in the version control ->
+- .gitignore file: list of local files not to be included in the version control ->
        
 ### Stuff to exclude
 
@@ -138,9 +140,9 @@ A collection of useful _.gitignore_ templates for different kind projects [in Gi
 
 ---
 
-## [Github](https://github.com)
+## [GitHub](https://github.com)
 
-- **Github != git**
+- **GitHub != Git** (Git is the application, GitHub is a company/service utilizing Git.)
 - Commercial service providing a remote git repository server, project management tools, wiki, issue tracker, webpage hosting, etc.
 - has a wide user community
 - **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
@@ -148,6 +150,7 @@ A collection of useful _.gitignore_ templates for different kind projects [in Gi
 - Repositories (projects) are public by default, private repos are accessible only for invited collaborators 
 
 - [Bitbucket](https://bitbucket.org) is another popular git repo hosting service providing free private repos for small teams
+- [GitLab](https://about.gitlab.com/install/) provides a commercial service or free open source community edition to installed on one's own server
 
 ---
 
