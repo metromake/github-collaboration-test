@@ -1,12 +1,6 @@
-class: center, middle
+# Quick Introduction to Version control & Git (cli)
 
-# Introduction to Version control & Git (cli)
-
-### MP 1/2019
-
----
-
-# Contents
+## Contents
 
 - Why version control?
 - Basic principles of Version Control System
@@ -18,7 +12,7 @@ class: center, middle
 
 ---
 
-# Why to use VCS
+## Why to use VCS
 
 _(Version Control System, revision control)_
 
@@ -39,7 +33,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Basic concepts
+## Basic concepts
 
 - **Repository**: storage for all files and revision data
 - **Clone**: taking a full copy of an existing repository
@@ -52,7 +46,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git
+## Git
 
 - Development started By Linus Torvalds 2005
 - Created for Linux kernel development
@@ -64,7 +58,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git tools
+## Git tools
 
 - Command line git (works directly in linux/mac terminal)
 - Windows: [Git for windows](https://msysgit.github.io/) provides command line tools (git bash) and Graphic UI tools/integration to Windows explorer
@@ -72,7 +66,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git, basic usage/commands
+## Git basic usage & commands
 
 - `git clone [url]`: clone an existing repository (creates a local copy of the repo)
 - `git init`: create a new git repository
@@ -88,7 +82,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git Workflow
+## Git Workflow
 
 ![Workflow graph](images/git-workflow.png)
 
@@ -96,7 +90,7 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git Revisions
+## Git Revisions
 
 - Git stores snapshots of all edited files in commits
 
@@ -106,36 +100,58 @@ _(Version Control System, revision control)_
 
 ---
 
-# Git ignore
+## Git ignore
 
-Which files and changes should be tracked?
-
-`.gitignore` file contents in Eclipse java projects (example):
+Which files and changes should be tracked with version control? 
+ 
+For example in following Eclipse Java project
 
 ![gitignore](images/gitignore.png)
 
-Contents in project above:
+only `src/` folder contains code files created by developers and everything else is generated automatically by Eclipse IDE (Integrated Development Environment) **->** `.gitignore` file for the project should be something like:
 
     bin/
     .settings/
     .project
     .classpath
 
+`.git/` folder (contains the revision history etc.) and `.gitignore` file itself should be included.
+
+### Stuff to include
+
+- all source code
+- README.md and other documentation 
+- license
+- package.json and other settings files
+- .gitignore file: list of local stuff not to be included in the version control ->
+       
+### Stuff to exclude
+
+- IDE specific project files & folders (.idea)
+- build targets and other automatically generated files
+- packages managed e.g. by npm (= _node_modules_ folder) 
+- any temp & OS specific files, like Apple's `.DS_Store` 
+
+### Examples
+
+A collection of useful _.gitignore_ templates for different kind projects [in GitHub](https://github.com/github/gitignore).
+
 ---
 
-# [Github](https://github.com)
+## [Github](https://github.com)
 
 - **Github != git**
-- Commercial service providing git remote server + project wiki, webpage hosting and wide user community
+- Commercial service providing a remote git repository server, project management tools, wiki, issue tracker, webpage hosting, etc.
+- has a wide user community
 - **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
 - Almost _de facto_ hosting service for Open Source projects
-- Repositories (projects) are public by default, private repos are not free (except student accounts)
+- Repositories (projects) are public by default, private repos are accessible only for invited collaborators 
 
 - [Bitbucket](https://bitbucket.org) is another popular git repo hosting service providing free private repos for small teams
 
 ---
 
-# Learn Git
+## Learn Git
 
 Take a look at:
 
@@ -146,13 +162,9 @@ Take a look at:
 
 ---
 
-class: center, middle
+## Exercises
 
-# Exercises
-
----
-
-## Exercise 0: Learn Git online course
+### Exercise 0: Learn Git online course
 
 Optional but highly recommended short (15+ mins) online course at: https://www.codecademy.com/learn/learn-git
 
@@ -160,7 +172,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 
 ---
 
-## Exercise 1: Git command line basics
+### Exercise 1: Git command line basics
 
 1. Install Git if missing command line tools. [Instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [tips for basic git config](https://gist.github.com/mattpe/2f26d86ee1ba9088e19a)
 2. Create a local repo by **cloning** (`git clone`) this lecture material from Github: <https://github.com/mattpe/git-intro.git>
@@ -177,7 +189,7 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 
 ---
 
-## Exercise 2: Collaboration & conflicts
+### Exercise 2: Collaboration & conflicts
 
 1. Form a team of ~3 members
 2. Choose a Github repo (from ex. 1) of one of the team members and add write/push permissions to other members of the team (add collaborators in Github, every team member should be able to push to that repo)
@@ -194,6 +206,6 @@ Optional but highly recommended short (15+ mins) online course at: https://www.c
 
 ---
 
-## Returning exercises
+### Returning exercises
 
-Add read permission to your repos for user _mattpe_ or make your repo public at Github and return a link to your own and your team's repo to Oma.
+Check related assignment in Oma for instructions.
