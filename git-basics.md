@@ -1,11 +1,12 @@
-# Quick Introduction to Version control & Git (cli)
+# Introduction to Version control & Git
 
 ## Contents
 
 - Why version control?
-- Basic principles of Version Control System
-- Git on command line
-- Basic usage & workflow
+- Basic principles of Version Control Systems
+- Git
+  - Basic concepts
+  - Usage & workflow
 - Remote hosting services: Github, Bitbucket, Gitlab
 - Links to Learning materials
 - Exercises
@@ -35,11 +36,13 @@ _(Version Control System, revision control)_
 ## Basic concepts
 
 - **Repository**: storage for all files and their revision data
-- **Clone**: taking a full copy of an existing repository
-- **Commit**: saving a new revision of code and naming it (= adding a message/description)
-- **Checkout**: choosing specified version of code or development branch to work with
-- **Branches**: parallel development versions of code
+- **Commit**: revision of code (one saved)
+- **Branch**: parallel development version of code
 - **Tag**: special label for a revision (e.g. Release v. 1.1)
+- tree
+
+- **Clone**: taking a full copy of an existing repository
+- **Checkout**: choosing specified version of code or development branch to work with
 - **Merge**: combining changes of different branches together
 - **Conflict**: occurs when there is different modifications in the same file while trying to merge branches
 
@@ -48,10 +51,13 @@ _(Version Control System, revision control)_
 ## Git
 
 - Development started By Linus Torvalds 2005
-- Created for Linux kernel development
+- Created initially for Linux kernel development
+- The Stupid Content Tracker
 - Distributed System
-- Can be used locally
--> remote server not mandatory
+- Content agnostic: can be used for anykind of files
+  - with some restrictions
+  - full functionality for plain text files 
+- Is used locally (remote server not mandatory)
 
 ![arch image](images/git-arch.png)
 
@@ -70,17 +76,30 @@ _(Version Control System, revision control)_
 
 ## Git basic usage & commands
 
-- `git clone <URI>`: clone an existing repository (creates a local copy of the repo)
+### Local workflow
+
 - `git init`: create a new git repository
+- `git status`: check current status of the repo
 - `git add [filenames]`: choose files for the next commit (add to staging area)
 - `git commit`: save a version of chosen files (needs a message too, e.g. `-m "added new file"`)
-- `git status`: check current status of the repo
 - `git log`: show revision history
 - `git branch <newBranchName>`: create a new branch based on the current branch
 - `git checkout <branchName>`: choose a branch or a revision to work with
-- `git push`: push the repository (new commits) to chosen remote repository
-- `git pull`: pull the repository ( get new changes and commits) from remote repo
 - `git diff`: shows the differences in files between working copy and the last commit
+- `git merge`:
+- `git rebase`:
+- `git stash`:
+- `git reflog`:
+
+- `gitk`
+
+### Synchronising with remotes
+
+- `git clone <URI>`: clone an existing repository (create a new local copy of the repo)
+- `git fetch`:
+- `git pull`: pull the repository ( get new changes and commits) from remote repo
+- `git push`: push the repository (new commits) to chosen remote repository
+- `git remote`: manage linking with remote repositories
 
 ---
 
@@ -92,13 +111,46 @@ _(Version Control System, revision control)_
 
 ---
 
-## Git Revisions
+### Creating Revisions
 
 - Git stores snapshots of all edited files in commits
 
 ![Revisions illustration](images/git-revisions.png)
 
 [Source](http://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+
+- choose files with `git add`
+- commit chosen files with `git commit -m`
+  - use descibing commit messages
+  - [How to write good commit messages](link TBD) 
+
+---
+
+### Branching
+
+tbd
+
+- branches are just pointers to commits
+
+---
+
+### Tagging
+
+tbd
+
+---
+
+### Merging changes
+
+---
+
+### Solving conflicts
+
+---
+
+## `.git/`
+
+- Contains everything else than the working copy of files
 
 ---
 
@@ -142,7 +194,7 @@ A collection of useful _.gitignore_ templates for different kind projects [in Gi
 
 ## [GitHub](https://github.com)
 
-- **GitHub != Git** (Git is the application, GitHub is a company/service utilizing Git.)
+- **GitHub != Git** (Git is the application, GitHub is a company/service utilizing Git and providing a lot more than just version tracking.)
 - Commercial service providing a remote git repository server, project management tools, wiki, issue tracker, webpage hosting, etc.
 - has a wide user community
 - **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
@@ -153,6 +205,28 @@ A collection of useful _.gitignore_ templates for different kind projects [in Gi
 - [GitLab](https://about.gitlab.com/install/) provides a commercial service or free open source community edition to installed on one's own server
 
 ---
+
+## Command-line `git` vs. GUIs
+
+- command-line version is the original with complete functionality
+- most IDEs have built-in or plugin based integrations for common operations
+- OS specific & cross-platform Git clients/apps
+  - QGit
+  - Gitg
+  - Git Force
+  - Sourcetree
+  - GitHub Desktop
+  - TortoiseGit
+  - GitUp
+  - Fork
+  - GitFinder
+  - GitKraken
+  - SmartGit
+  - Git Cola
+  - GitFiend
+  - Gittyup
+
+If you master the command-line it's easy to understand how git works and use diffenrent GUIs too.
 
 ## Learn Git
 
