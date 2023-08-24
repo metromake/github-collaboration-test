@@ -1,3 +1,4 @@
-## Git introduction
+# Git introduction
 
-[Content](git-basics.md)
+1. [Material](git-basics.md)
+2. [Exercises](exercises.md)
