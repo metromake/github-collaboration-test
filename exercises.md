@@ -1,8 +1,10 @@
 # Git Exercises
 
-## Exercise 0: Learn Git basics online courses (optional)
+## Exercise 0: Learn Command line and Git basics online materials (optional)
 
-Some free online courses/tutorials available:
+Read: [Command Line for Beginners – How to Use the Terminal Like a Pro [Full Handbook]](https://www.freecodecamp.org/news/command-line-for-beginners/)
+
+Some free online Git courses/tutorials available:
 
 - [Git Started with GitHub](https://www.udemy.com/course/git-started-with-github/)
   - Learn the basics of Git and GitHub, with step-by-step instructions
