@@ -8,3 +8,7 @@
     8  git branch -M main
     9  git push -u origin main
    10  history
+   11  git add .
+   12  git commit -m "add notes"
+   13  git push
+   14  history
