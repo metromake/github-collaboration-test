@@ -1,4 +1,6 @@
 # Git introduction
-
-1. [Material](git-basics.md)
+fdahjvhdsk
 2. [Exercises](exercises.md)
+hhajdf
+akdpovkdpov
+asodjvsadkgf
