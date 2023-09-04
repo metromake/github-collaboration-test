@@ -1,16 +1,13 @@
-# Introduction to Version control & Git
-
-## Contents
-
-- Why version control?
-- Basic principles of Version Control Systems
-- Git
-  - Basic concepts
-  - Usage & workflows
-- Remote repositories and hosting services: Github, Bitbucket, Gitlab
-- Links to Learning materials
-- [Exercises](exercises.md)
-
+hgadgfhahsdjksada
+fas
+fs
+gdf
+hderh
+drgksfkjskfsd
+fsjd
+adkgdasgjksdhgklsgl
+sdgjdg
+kjwekgjwoigvjewiogjw
 ---
 
 ## Why to use VCS
@@ -28,6 +25,202 @@ _(Version Control System, revision control)_
 - Example: [check revisions][wiki1] of an [Wikipedia article][wiki2]
 
 [wiki1]: https://en.wikipedia.org/w/index.php?title=Git_(software)&action=history
+## Git ignore
+
+Which files and changes should be tracked with version control?
+
+For example in following Eclipse Java project
+
+![gitignore](images/gitignore.png)
+
+only `src/` folder contains code files created by developers and everything else is generated automatically by Eclipse IDE (Integrated Development Environment) **->** `.gitignore` file for the project should be something like:
+
+```txt
+bin/
+.settings/
+.project
+.classpath
+```
+
+`.git/` folder (contains the revision history etc.) and `.gitignore` file itself should be included in version control.
+
+### Stuff to include
+
+- all source code
+- `README.md` and other documentation
+- license
+- `package.json` and other settings files
+- `.gitignore` file: list of local files not to be included in the version control ->
+
+### Stuff to exclude
+
+- build targets and other automatically generated files
+- packages managed e.g. by _npm_ (= _node_modules_ folder)
+- any temp & OS specific files, like Apple's `.DS_Store`
+- IDE/editor specific project files & folders
+
+### Examples
+
+A collection of useful _.gitignore_ templates for different kind projects [in GitHub](https://github.com/github/gitignore).
+
+---
+
+## Git workflows (branching strategies)
+
+- **Feature Branching:** In this strategy, each new feature or task gets its own branch. Developers work on these branches, and when the feature is complete, it's merged back into the main development branch.
+  - Advantages: Isolates new features, makes it easy to track progress on individual features, and allows for concurrent development of multiple features.
+  - Disadvantages: Can lead to a large number of branches, and merging can become complex if there are many long-lived feature branches.
+
+- **Gitflow Workflow:**  Gitflow is a branching model that defines specific branch naming and usage conventions. It typically includes a "develop" branch for ongoing development, "feature" branches for new features, "release" branches for preparing releases, and a "master" branch for stable releases.
+Advantages: Provides a structured and organized workflow, making it easier to manage releases and hotfixes.
+  - Disadvantages: Can be seen as overcomplicated for smaller projects and may introduce unnecessary overhead.
+
+- **GitHub Flow:**  GitHub Flow is a simplified workflow often used in open-source and web development. It involves a "master" branch for production-ready code and feature branches for development. Changes are continuously integrated into the master branch through pull requests.
+  - Advantages Simple and effective for continuous deployment and collaboration. Suitable for fast-paced, web-centric projects.
+  - Disadvantages: May not be suitable for projects with longer release cycles or complex version management.
+
+- **GitLab Flow:** Similar to GitHub Flow, GitLab Flow focuses on a simple workflow using merge requests. It includes feature branches for development and long-lived "production" and "staging" branches for different stages of the development process.
+  - Advantages Well-suited for teams using GitLab's built-in features. Provides clear separation of different development stages.
+  - Disadvantages: May require some adaptation if not using GitLab's specific tools and features.
+
+- **Centralized (aka Trunk-Based) Development:** In this strategy, there's only one long-lived branch (typically "main" or legacy "master"). All development work, including new features, bug fixes, and experiments, is done on this branch. Continuous integration practices ensure that the code on the main branch is always in a deployable state.
+  - Advantages Simplicity, encourages small and frequent commits, and ensures a very stable "trunk" at all times.
+  - Disadvantages: Can be challenging for larger teams or complex projects, as it requires strict discipline and automation.
+
+- **Release Branching:** In this strategy, there's a "develop" branch for ongoing work, and when it's time for a release, a "release" branch is created. Bug fixes for the release are made on the release branch, and once it's stable, it's merged into "master."
+  - Advantages Provides a way to stabilize the code for releases while still allowing ongoing development.
+  - Disadvantages: Can introduce complexity in managing multiple branches, and merging can be challenging.
+
+Reading
+
+- [Comparing Git Workflows: What You Should Know](https://www.atlassian.com/git/tutorials/comparing-workflows) (Atlassian)
+
+---
+
+### Merging changes
+
+Merging is the process of combining changes from one branch into another. This is typically done when a feature or bug fix is complete and needs to be incorporated into another development branch or into the `main` branch.
+
+1. Merge changes in another branch into the current branch: `git merge <OTHER-BRANCH>`.
+2. If the branch you're merging into has not diverged from the source branch, Git performs a fast-forward merge. In this case, no actual merge commit is created; the branch pointer simply moves forward to the latest commit on the source branch. (No need to create commit manually.)
+3. If there are changes in both the source and target branches that cannot be resolved automatically (i.e., there are conflicting changes to the same lines of code), Git performs a three-way merge. It creates a merge commit that represents the combination of the changes from both branches. You may need to [resolve any conflicts](#resolving-conflicts) manually before finalizing the merge.
+4. If you encounter issues during a merge and want to abort the merge process, you can use: `git merge --abort`
+5. Finally, after resolving conflicts and completing the merge, you need to commit the merge changes to finalize the process: `git commit -m "Merge branch 'source-branch' into 'target-branch'"`
+
+#### Using `git rebase` to integrate changes
+
+git rebase is a Git command used for modifying the commit history of a branch. Unlike git merge, which integrates changes from one branch into another with a new merge commit, git rebase rewrites the commit history by moving or combining commits from one branch onto another. This can result in a linear, more streamlined commit history.
+
+Note that rebasing rewrites commit history, which can make it a powerful tool for maintaining a clean and linear history. However, it should be used with caution, especially in shared branches, because it can cause confusion and conflicts for other team members if they are also working on the same branch.
+
+Read: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) (by Atlassian)
+
+
+
+## `.git/`
+
+- Contains everything else than the working copy of files
+- "physical location" of the local git repo on the file system
+- removing the folder deletes the repository completely, only files in current branch are saved
+
+---
+
+## Exercise 1: Git command line basics
+
+1. Install Git if missing command line tools, [instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2. Create a local repo by **cloning** (`git clone`) this lecture material from Github: <https://github.com/mattpe/git-intro.git>
+3. Create a remote repository at Github
+4. Change the remote _origin_ to point to your Github repo (tip: `git remote help`)
+   - set new uri for _origin_, or:
+   - remove existing _origin_
+   - add new _origin_: url to your Github repo
+5. Push the files to your Github repo
+6. Create a file `notes.md` in your local repo and record all git commands you have used into that file (check command: `history`)
+7. Add the file to the local git repo
+8. Commit your changes (remember to write a comment)
+9. Push changes to remote repo
+10. Update the file by adding new commands to list and _add, commit & push_ changes again
+
+---
+
+## Exercise 2: Collaboration & solving conflicts
+
+1. Form a team of ~3 members
+2. Choose a Github repo (from ex. 1) of one of the team members and add write/push permissions to other members of the team (add collaborators in Github, every team member should be able to push to that repo)
+3. all team members should clone the same remote repo
+## [GitHub](https://github.com)
+
+- **GitHub != Git** (Git is the application, GitHub is a company/service utilizing Git and providing a lot more than just version tracking.)
+- Commercial service providing a remote git repository server, project management tools, wiki, issue tracker, webpage hosting, etc.
+- has a wide user community
+- **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
+- Almost _de facto_ hosting service for Open Source projects
+- Repositories (projects) are public by default, private repos are accessible only for invited collaborators
+
+## Other remote repository service providers
+
+- [Bitbucket](https://bitbucket.org) is another popular git repo hosting service providing free private repos for small teams
+- [GitLab](https://about.gitlab.com/install/) provides a commercial service or free open source community edition to installed on one's own server
+
+## Working with remote repositories
+
+`git pull`, `git push`, and `git fetch` are essential Git commands for interacting with remote repositories. They allow you to synchronize your local repository with a remote repository, exchange changes with collaborators, and keep your codebase up to date.
+
+Before testing these commands you need to create an empty project for example in Github and follow the instructions to set the remote in your local repo. Additionally, you need to [setup authentication with Github](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
+
+### Git Pull
+
+The `git pull` command is used to fetch changes from a remote repository and merge them into your current branch. It's a combination of `git fetch` and `git merge`.
+
+```bash
+# <remote> is the name of the remote repository (e.g., origin is the default remote name).
+# <branch> is the branch from the remote repository that you want to pull and merge into your current branch.
+git pull <remote> <branch>
+
+# Example
+git pull origin main
+```
+
+### Git Push
+
+The `git push` command is used to send your local commits to a remote repository. It updates the remote repository with your changes.
+
+## Command-line `git` vs. GUIs
+
+- command-line version is the original with complete functionality
+- most IDEs have built-in or plugin based integrations for common operations
+- OS specific & cross-platform Git clients/apps
+  - QGit
+  - Gitg
+  - Git Force
+  - Sourcetree
+  - GitHub Desktop
+  - TortoiseGit
+  - GitUp
+  - Fork
+  - GitFinder
+  - GitKraken
+  - SmartGit
+  - Git Cola
+  - GitFiend
+  - Gittyup
+
+_If you master the command-line it's easy to understand how git works and use diffenrent GUIs too._ Additionally, all new features are implemented first in original cli application.
+
+## More learning materials
+
+- Free book: [Pro Git](http://git-scm.com/book/en/v2)
+- Basics at Codecademy: [Learn Git](https://www.codecademy.com/learn/learn-git)
+- [GitHub Guides](https://guides.github.com/)
+- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials/)
+
+---
+
+- [The best Git branching strategies](https://blog.mergify.com/the-best-git-branching-strategies/) (by Hugo Escafit)
+
+---
+
+
 [wiki2]: https://en.wikipedia.org/wiki/Git_(software)
 
 Read: [What is version control?](https://www.atlassian.com/git/tutorials/what-is-version-control)
@@ -139,22 +332,6 @@ _VCS is a fundamental tool for software development, and it's used not only by i
 - a branch is a separate line of development within a Git repository
 - allows multiple developers to work on different features or fixes simultaneously without interfering with each other
 - basically branches are just pointers to commits
-- different [branching strategies](#git-workflows-branching-strategies) can be adapted to project
-
-Some examples of working with branches:
-
-```sh
-git branch   # List local branches in repo
-git branch --all   # List all branches
-git branch new-feature  # Create a new branch named 'new-feature'
-git checkout new-feature  # Switch to the 'new-feature' branch
-git checkout -b bug-fix  # Create and switch to a new branch named 'bug-fix'
-git branch -d bug-fix  # Delete the 'bug-fix' branch (if it's fully merged)
-git branch -D bug-fix  # Force delete the 'bug-fix' branch (if not fully merged)
-git branch -m new-name  # Rename the current branch to 'new-name'
-git log new-feature  # Show commit history for the 'new-feature' branch
-git diff new-feature main  # Compare changes between 'new-feature' and 'main' branches
-```
 
 ---
 
@@ -176,236 +353,3 @@ Listing & viewing tags:
 git tag  # list all the tags in your repository
 git show <tagname>  # view details about a specifig tag
 ```
-
----
-
-### Merging changes
-
-Merging is the process of combining changes from one branch into another. This is typically done when a feature or bug fix is complete and needs to be incorporated into another development branch or into the `main` branch.
-
-1. Merge changes in another branch into the current branch: `git merge <OTHER-BRANCH>`.
-2. If the branch you're merging into has not diverged from the source branch, Git performs a fast-forward merge. In this case, no actual merge commit is created; the branch pointer simply moves forward to the latest commit on the source branch. (No need to create commit manually.)
-3. If there are changes in both the source and target branches that cannot be resolved automatically (i.e., there are conflicting changes to the same lines of code), Git performs a three-way merge. It creates a merge commit that represents the combination of the changes from both branches. You may need to [resolve any conflicts](#resolving-conflicts) manually before finalizing the merge.
-4. If you encounter issues during a merge and want to abort the merge process, you can use: `git merge --abort`
-5. Finally, after resolving conflicts and completing the merge, you need to commit the merge changes to finalize the process: `git commit -m "Merge branch 'source-branch' into 'target-branch'"`
-
-#### Using `git rebase` to integrate changes
-
-git rebase is a Git command used for modifying the commit history of a branch. Unlike git merge, which integrates changes from one branch into another with a new merge commit, git rebase rewrites the commit history by moving or combining commits from one branch onto another. This can result in a linear, more streamlined commit history.
-
-Note that rebasing rewrites commit history, which can make it a powerful tool for maintaining a clean and linear history. However, it should be used with caution, especially in shared branches, because it can cause confusion and conflicts for other team members if they are also working on the same branch.
-
-Read: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing) (by Atlassian)
-
----
-
-### Resolving conflicts
-
-1. **Identify Conflicts**:
-   When you attempt to merge or rebase a branch with conflicting changes, Git will notify you of the conflict in the terminal.
-2. **Open the Conflicted File**:
-   - Open the conflicted file in a code editor.
-   - Git will mark the conflicting sections like this:
-
-     ```plaintext
-     <<<<<<< HEAD
-     // Your changes
-     =======
-     // Their changes
-     >>>>>>> branch-name
-     ```
-
-   - The `<<<<<<< HEAD` marker indicates the start of your changes.
-   - The `=======` marker separates your changes from the changes in the other branch.
-   - The `>>>>>>> branch-name` marker indicates the end of their changes.
-   - Many editors and IDEs provide tools for doing this more easily
-3. **Manually Resolve the Conflict**:
-   - Edit the file to choose which changes to keep and how to combine them.
-   - Remove conflict markers and any extra spacing or lines used for markers.
-4. **Save the File**:
-   - Save the file with your changes.
-5. **Repeat as Needed**:
-   - If there are conflicts in multiple files, repeat the conflict resolution process for each file.
-6. **Add and Commit**:
-   - After resolving all conflicts, add the files to the staging area using `git add <list of files or .>`.
-   - Commit the changes using `git commit -m "commit message"`. Git will create a new merge commit.
-7. **Test Your Changes**:
-   - After resolving conflicts, it's important to test your code to ensure that the changes are correct and functional.
-
-Remember that conflicts are a natural part of collaborative development. Good communication with your team is essential to coordinate changes and minimize conflicts. Additionally, using version control best practices, such as keeping branches up to date and using feature branches, can help reduce the frequency of conflicts.
-
----
-
-## `.git/`
-
-- Contains everything else than the working copy of files
-- "physical location" of the local git repo on the file system
-- removing the folder deletes the repository completely, only files in current branch are saved
-
----
-
-## Git ignore
-
-Which files and changes should be tracked with version control?
-
-For example in following Eclipse Java project
-
-![gitignore](images/gitignore.png)
-
-only `src/` folder contains code files created by developers and everything else is generated automatically by Eclipse IDE (Integrated Development Environment) **->** `.gitignore` file for the project should be something like:
-
-```txt
-bin/
-.settings/
-.project
-.classpath
-```
-
-`.git/` folder (contains the revision history etc.) and `.gitignore` file itself should be included in version control.
-
-### Stuff to include
-
-- all source code
-- `README.md` and other documentation
-- license
-- `package.json` and other settings files
-- `.gitignore` file: list of local files not to be included in the version control ->
-
-### Stuff to exclude
-
-- build targets and other automatically generated files
-- packages managed e.g. by _npm_ (= _node_modules_ folder)
-- any temp & OS specific files, like Apple's `.DS_Store`
-- IDE/editor specific project files & folders
-
-### Examples
-
-A collection of useful _.gitignore_ templates for different kind projects [in GitHub](https://github.com/github/gitignore).
-
----
-
-## Git workflows (branching strategies)
-
-- **Feature Branching:** In this strategy, each new feature or task gets its own branch. Developers work on these branches, and when the feature is complete, it's merged back into the main development branch.
-  - Advantages: Isolates new features, makes it easy to track progress on individual features, and allows for concurrent development of multiple features.
-  - Disadvantages: Can lead to a large number of branches, and merging can become complex if there are many long-lived feature branches.
-
-- **Gitflow Workflow:**  Gitflow is a branching model that defines specific branch naming and usage conventions. It typically includes a "develop" branch for ongoing development, "feature" branches for new features, "release" branches for preparing releases, and a "master" branch for stable releases.
-Advantages: Provides a structured and organized workflow, making it easier to manage releases and hotfixes.
-  - Disadvantages: Can be seen as overcomplicated for smaller projects and may introduce unnecessary overhead.
-
-- **GitHub Flow:**  GitHub Flow is a simplified workflow often used in open-source and web development. It involves a "master" branch for production-ready code and feature branches for development. Changes are continuously integrated into the master branch through pull requests.
-  - Advantages Simple and effective for continuous deployment and collaboration. Suitable for fast-paced, web-centric projects.
-  - Disadvantages: May not be suitable for projects with longer release cycles or complex version management.
-
-- **GitLab Flow:** Similar to GitHub Flow, GitLab Flow focuses on a simple workflow using merge requests. It includes feature branches for development and long-lived "production" and "staging" branches for different stages of the development process.
-  - Advantages Well-suited for teams using GitLab's built-in features. Provides clear separation of different development stages.
-  - Disadvantages: May require some adaptation if not using GitLab's specific tools and features.
-
-- **Centralized (aka Trunk-Based) Development:** In this strategy, there's only one long-lived branch (typically "main" or legacy "master"). All development work, including new features, bug fixes, and experiments, is done on this branch. Continuous integration practices ensure that the code on the main branch is always in a deployable state.
-  - Advantages Simplicity, encourages small and frequent commits, and ensures a very stable "trunk" at all times.
-  - Disadvantages: Can be challenging for larger teams or complex projects, as it requires strict discipline and automation.
-
-- **Release Branching:** In this strategy, there's a "develop" branch for ongoing work, and when it's time for a release, a "release" branch is created. Bug fixes for the release are made on the release branch, and once it's stable, it's merged into "master."
-  - Advantages Provides a way to stabilize the code for releases while still allowing ongoing development.
-  - Disadvantages: Can introduce complexity in managing multiple branches, and merging can be challenging.
-
-Reading
-
-- [Comparing Git Workflows: What You Should Know](https://www.atlassian.com/git/tutorials/comparing-workflows) (Atlassian)
-- [The best Git branching strategies](https://blog.mergify.com/the-best-git-branching-strategies/) (by Hugo Escafit)
-
----
-
-## [GitHub](https://github.com)
-
-- **GitHub != Git** (Git is the application, GitHub is a company/service utilizing Git and providing a lot more than just version tracking.)
-- Commercial service providing a remote git repository server, project management tools, wiki, issue tracker, webpage hosting, etc.
-- has a wide user community
-- **Fork**: Create a new Github project, clone the git repository of an existing project and add repo to the new project
-- Almost _de facto_ hosting service for Open Source projects
-- Repositories (projects) are public by default, private repos are accessible only for invited collaborators
-
-## Other remote repository service providers
-
-- [Bitbucket](https://bitbucket.org) is another popular git repo hosting service providing free private repos for small teams
-- [GitLab](https://about.gitlab.com/install/) provides a commercial service or free open source community edition to installed on one's own server
-
-## Working with remote repositories
-
-`git pull`, `git push`, and `git fetch` are essential Git commands for interacting with remote repositories. They allow you to synchronize your local repository with a remote repository, exchange changes with collaborators, and keep your codebase up to date.
-
-Before testing these commands you need to create an empty project for example in Github and follow the instructions to set the remote in your local repo. Additionally, you need to [setup authentication with Github](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
-
-### Git Pull
-
-The `git pull` command is used to fetch changes from a remote repository and merge them into your current branch. It's a combination of `git fetch` and `git merge`.
-
-```bash
-# <remote> is the name of the remote repository (e.g., origin is the default remote name).
-# <branch> is the branch from the remote repository that you want to pull and merge into your current branch.
-git pull <remote> <branch>
-
-# Example
-git pull origin main
-```
-
-### Git Push
-
-The `git push` command is used to send your local commits to a remote repository. It updates the remote repository with your changes.
-
-```bash
-# <remote> is the name of the remote repository.
-# <branch> is the branch you want to push.
-git push <remote> <branch>
-
-# Example
-git push origin feature-branch
-```
-
-If there is changes in the remote branch, you need to pull the changes and resolve possible conflicts before pushing your local branch.
-
-### git fetch
-
-The `git fetch` command retrieves changes from a remote repository and stores them locally. Unlike git pull, it doesn't automatically merge the changes into your current branch. It's useful for inspecting changes before merging.
-
-```sh
-git fetch <remote>
-
-# Examples
-git fetch origin  # fetches the latest changes from the origin remote repository but doesn't merge them into your current branch
-git fetch --all  # fetches all branches from all remotes
-```
-
----
-
-## Command-line `git` vs. GUIs
-
-- command-line version is the original with complete functionality
-- most IDEs have built-in or plugin based integrations for common operations
-- OS specific & cross-platform Git clients/apps
-  - QGit
-  - Gitg
-  - Git Force
-  - Sourcetree
-  - GitHub Desktop
-  - TortoiseGit
-  - GitUp
-  - Fork
-  - GitFinder
-  - GitKraken
-  - SmartGit
-  - Git Cola
-  - GitFiend
-  - Gittyup
-
-_If you master the command-line it's easy to understand how git works and use diffenrent GUIs too._ Additionally, all new features are implemented first in original cli application.
-
-## More learning materials
-
-- Free book: [Pro Git](http://git-scm.com/book/en/v2)
-- Basics at Codecademy: [Learn Git](https://www.codecademy.com/learn/learn-git)
-- [GitHub Guides](https://guides.github.com/)
-- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials/)
-
----
