@@ -5,6 +5,40 @@
   jjahdkfad
   asda
   sda
+  A collection of useful _.gitignore_ templates for different kind projects [in GitHub](https://github.com/github/gitignore).
+
+---
+
+## Git workflows (branching strategies)
+
+- **Feature Branching:** In this strategy, each new feature or task gets its own branch. Developers work on these branches, and when the feature is complete, it's merged back into the main development branch.
+  - Advantages: Isolates new features, makes it easy to track progress on individual features, and allows for concurrent development of multiple features.
+  - Disadvantages: Can lead to a large number of branches, and merging can become complex if there are many long-lived feature branches.
+
+- **Gitflow Workflow:**  Gitflow is a branching model that defines specific branch naming and usage conventions. It typically includes a "develop" branch for ongoing development, "feature" branches for new features, "release" branches for preparing releases, and a "master" branch for stable releases.
+Advantages: Provides a structured and organized workflow, making it easier to manage releases and hotfixes.
+  - Disadvantages: Can be seen as overcomplicated for smaller projects and may introduce unnecessary overhead.
+
+- **GitHub Flow:**  GitHub Flow is a simplified workflow often used in open-source and web development. It involves a "master" branch for production-ready code and feature branches for development. Changes are continuously integrated into the master branch through pull requests.
+  - Advantages Simple and effective for continuous deployment and collaboration. Suitable for fast-paced, web-centric projects.
+  - Disadvantages: May not be suitable for projects with longer release cycles or complex version management.
+
+- **GitLab Flow:** Similar to GitHub Flow, GitLab Flow focuses on a simple workflow using merge requests. It includes feature branches for development and long-lived "production" and "staging" branches for different stages of the development process.
+  - Advantages Well-suited for teams using GitLab's built-in features. Provides clear separation of different development stages.
+  - Disadvantages: May require some adaptation if not using GitLab's specific tools and features.
+
+- **Centralized (aka Trunk-Based) Development:** In this strategy, there's only one long-lived branch (typically "main" or legacy "master"). All development work, including new features, bug fixes, and experiments, is done on this branch. Continuous integration practices ensure that the code on the main branch is always in a deployable state.
+  - Advantages Simplicity, encourages small and frequent commits, and ensures a very stable "trunk" at all times.
+  - Disadvantages: Can be challenging for larger teams or complex projects, as it requires strict discipline and automation.
+
+- **Release Branching:** In this strategy, there's a "develop" branch for ongoing work, and when it's time for a release, a "release" branch is created. Bug fixes for the release are made on the release branch, and once it's stable, it's merged into "master."
+  - Advantages Provides a way to stabilize the code for releases while still allowing ongoing development.
+  - Disadvantages: Can introduce complexity in managing multiple branches, and merging can be challenging.
+
+Reading
+
+- [Comparing Git Workflows: What You Should Know](https://www.atlassian.com/git/tutorials/comparing-workflows) (Atlassian)
+
   d
   sad
   agd
@@ -19,22 +53,7 @@
 
 ### Resolving conflicts
 
-1. **Identify Conflicts**:
-   When you attempt to merge or rebase a branch with conflicting changes, Git will notify you of the conflict in the terminal.
-2. **Open the Conflicted File**:
-   - Open the conflicted file in a code editor.
-   - Git will mark the conflicting sections like this:
-
-     ```plaintext
-     <<<<<<< HEAD
-     // Your changes
-     =======
-     // Their changes
-     >>>>>>> branch-name
-     ```
-
-   - The `<<<<<<< HEAD` marker indicates the start of your changes.
-   - The `=======` marker separates your changes from the changes in the other branch.
+1. ** changes in the other branch.
    - The `>>>>>>> branch-name` marker indicates the end of their changes.
    - Many editors and IDEs provide tools for doing this more easily
 3. **Manually Resolve the Conflict**:

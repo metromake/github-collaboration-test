@@ -61,39 +61,6 @@ bin/
 
 ### Examples
 
-A collection of useful _.gitignore_ templates for different kind projects [in GitHub](https://github.com/github/gitignore).
-
----
-
-## Git workflows (branching strategies)
-
-- **Feature Branching:** In this strategy, each new feature or task gets its own branch. Developers work on these branches, and when the feature is complete, it's merged back into the main development branch.
-  - Advantages: Isolates new features, makes it easy to track progress on individual features, and allows for concurrent development of multiple features.
-  - Disadvantages: Can lead to a large number of branches, and merging can become complex if there are many long-lived feature branches.
-
-- **Gitflow Workflow:**  Gitflow is a branching model that defines specific branch naming and usage conventions. It typically includes a "develop" branch for ongoing development, "feature" branches for new features, "release" branches for preparing releases, and a "master" branch for stable releases.
-Advantages: Provides a structured and organized workflow, making it easier to manage releases and hotfixes.
-  - Disadvantages: Can be seen as overcomplicated for smaller projects and may introduce unnecessary overhead.
-
-- **GitHub Flow:**  GitHub Flow is a simplified workflow often used in open-source and web development. It involves a "master" branch for production-ready code and feature branches for development. Changes are continuously integrated into the master branch through pull requests.
-  - Advantages Simple and effective for continuous deployment and collaboration. Suitable for fast-paced, web-centric projects.
-  - Disadvantages: May not be suitable for projects with longer release cycles or complex version management.
-
-- **GitLab Flow:** Similar to GitHub Flow, GitLab Flow focuses on a simple workflow using merge requests. It includes feature branches for development and long-lived "production" and "staging" branches for different stages of the development process.
-  - Advantages Well-suited for teams using GitLab's built-in features. Provides clear separation of different development stages.
-  - Disadvantages: May require some adaptation if not using GitLab's specific tools and features.
-
-- **Centralized (aka Trunk-Based) Development:** In this strategy, there's only one long-lived branch (typically "main" or legacy "master"). All development work, including new features, bug fixes, and experiments, is done on this branch. Continuous integration practices ensure that the code on the main branch is always in a deployable state.
-  - Advantages Simplicity, encourages small and frequent commits, and ensures a very stable "trunk" at all times.
-  - Disadvantages: Can be challenging for larger teams or complex projects, as it requires strict discipline and automation.
-
-- **Release Branching:** In this strategy, there's a "develop" branch for ongoing work, and when it's time for a release, a "release" branch is created. Bug fixes for the release are made on the release branch, and once it's stable, it's merged into "master."
-  - Advantages Provides a way to stabilize the code for releases while still allowing ongoing development.
-  - Disadvantages: Can introduce complexity in managing multiple branches, and merging can be challenging.
-
-Reading
-
-- [Comparing Git Workflows: What You Should Know](https://www.atlassian.com/git/tutorials/comparing-workflows) (Atlassian)
 
 ---
 
@@ -162,30 +129,6 @@ Read: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-
 - [Bitbucket](https://bitbucket.org) is another popular git repo hosting service providing free private repos for small teams
 - [GitLab](https://about.gitlab.com/install/) provides a commercial service or free open source community edition to installed on one's own server
 
-## Working with remote repositories
-
-`git pull`, `git push`, and `git fetch` are essential Git commands for interacting with remote repositories. They allow you to synchronize your local repository with a remote repository, exchange changes with collaborators, and keep your codebase up to date.
-
-Before testing these commands you need to create an empty project for example in Github and follow the instructions to set the remote in your local repo. Additionally, you need to [setup authentication with Github](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
-
-### Git Pull
-
-The `git pull` command is used to fetch changes from a remote repository and merge them into your current branch. It's a combination of `git fetch` and `git merge`.
-
-```bash
-# <remote> is the name of the remote repository (e.g., origin is the default remote name).
-# <branch> is the branch from the remote repository that you want to pull and merge into your current branch.
-git pull <remote> <branch>
-
-# Example
-git pull origin main
-```
-
-### Git Push
-
-The `git push` command is used to send your local commits to a remote repository. It updates the remote repository with your changes.
-
-## Command-line `git` vs. GUIs
 
 - command-line version is the original with complete functionality
 - most IDEs have built-in or plugin based integrations for common operations
@@ -220,16 +163,8 @@ _If you master the command-line it's easy to understand how git works and use di
 
 ---
 
-
-[wiki2]: https://en.wikipedia.org/wiki/Git_(software)
-
-Read: [What is version control?](https://www.atlassian.com/git/tutorials/what-is-version-control)
-
-_VCS is a fundamental tool for software development, and it's used not only by individual developers but also by teams and organizations of all sizes to manage and collaborate on software projects efficiently. It plays a crucial role in ensuring code quality, collaboration, and project management in the software development process._
-
----
-
-## Basic concepts
+djagdjfjdkafkasbfbajbcsab c
+sacanskjvnak
 
 - **Repository** (or **Repo**): storage for all files, metadata and their revision data for a project
 - **Commit**: revision of code (a snapshot of the repository at a specific point in time)
@@ -241,6 +176,17 @@ _VCS is a fundamental tool for software development, and it's used not only by i
 - **Conflict**: occurs when there is different modifications in the same file while trying to merge branches
 
 ---
+## Exercise 0: Learn Command line and Git basics online materials (optional)
+
+Read: [Command Line for Beginners – How to Use the Terminal Like a Pro [Full Handbook]](https://www.freecodecamp.org/news/command-line-for-beginners/)
+
+Some free online Git courses/tutorials available:
+
+- [Git Started with GitHub](https://www.udemy.com/course/git-started-with-github/)
+  - Learn the basics of Git and GitHub, with step-by-step instructions
+- [Version Control with Git](https://www.coursera.org/learn/version-control-with-git) by Atlassian
+  - Command line and Sourcetree GUI in use, Teacher's recommendation: **choose command line**
+- [The Ultimate GIT 5-day Challenge](https://www.udemy.com/course/the-ultimate-git-5-day-challenge/)
 
 ## Git
 
@@ -254,43 +200,6 @@ _VCS is a fundamental tool for software development, and it's used not only by i
 - Is used locally (remote server not mandatory)
 
 ![arch image](images/git-arch.png)
-
----
-
-## Git installation
-
-- Command line user interface running in operating system's terminal is the original/default tool
-  - Windows: [Git for windows](https://gitforwindows.org/) provides command line tools (git bash) and Graphic UI tools/integration to Windows explorer
-  - MacOS: [Several options](https://git-scm.com/download/mac)
-  - Linux/Unix: via package manager, e.g. `apt install git` or `yum install git`
-- Multiple [graphical UIs](https://git-scm.com/downloads/guis) are available too  
-- Integrated Git support or a plugin is provided for most/all popular IDEs
-
----
-
-## Git basic usage & commands
-
-### Local Git workflow
-
-- `git init`: create a new git repository
-- `git status`: check current status of the repo, **TIP:** Use this all the time to double-check what you are doing with your repo
-- `git add [filenames]`: choose files for the next commit (add to staging area)
-- `git commit`: save a version of chosen files (needs a message too, e.g. `-m "added new file"`)
-- `git log`: show revision history
-- `git branch <newBranchName>`: create a new branch based on the current branch
-- `git tag`: create a reference to a specific commit in the repository's history
-- `git checkout <branchName>`: choose a branch or a revision to work with
-- `git diff`: shows the differences in files between working copy and the last commit
-- `git merge`: combine changes from one branch into another
-- `git rebase`: modify the commit history of a branch
-- `git reset`: manipulate the state of the current branch by moving the branch pointer to a different commit (used e.g. to undo changes, unstage files, etc.)
-- `git stash`: temporarily save changes that you've made in your working directory but do not want to commit at the moment
-- `git reflog`: "reference log", maintains a log of all reference updates in a Git repository including branch creations, checkouts, commits, merges, rebases, etc.
-- `gitk`: graphical user interface (GUI) tool that comes bundled with Git
-
-![Workflow graph](images/git-workflow.png)
-
-[Source](http://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
 
 ### Synchronising with remotes
 
@@ -336,20 +245,3 @@ _VCS is a fundamental tool for software development, and it's used not only by i
 ---
 
 ### Tagging
-
-Tags are used to mark important points in the history of a project, such as software releases or significant milestones. Unlike branches, which can move as new commits are added, tags are static and provide a way to uniquely identify and reference specific commits.
-
-Creating a tag:
-
-```sh
-git tag <tagname>  # Tag the current commit
-git tag -a <tagname> -m "Tag message"   # Create an annotated tag with a message
-git tag <tagname> <commit>   # Tag a specific commit
-```
-
-Listing & viewing tags:
-
-```sh
-git tag  # list all the tags in your repository
-git show <tagname>  # view details about a specifig tag
-```
